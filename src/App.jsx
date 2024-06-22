@@ -21,9 +21,9 @@ export const App = () => {
   }
 
   return (
-    <header>
+    <header className="header">
       Hello, world!
-      {dogImageUrl && <img src={dogImageUrl} alt="A Random Dog" />}
+      {dogImageUrl && <img className="dogImage" src={dogImageUrl} alt="A Random Dog" />}
       <button onClick={setDogUrl}>更新</button>
     </header>
   );
