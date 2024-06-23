@@ -7,12 +7,15 @@
  */
 export const BreedsSelect = ({ breeds, selectedBreed, onSelectChange }) => {
   return (
-    <select value={selectedBreed} onChange={onSelectChange}>
-      <option value="">選択してください</option>
-      {breeds.map(breed => (
-        <option key={breed} value={breed}>{breed}</option>
-      ))}
-    </select>
+    <div>
+      <label htmlFor="breedSelect">BreedsList</label>
+      <select value={selectedBreed} onChange={onSelectChange}>
+        <option value="">選択してください</option>
+        {breeds.map(breed => (
+          <option key={breed} value={breed}>{breed}</option>
+        ))}
+      </select>
+    </div>
   );
 }
 

@@ -5,6 +5,28 @@
 .dog_image {
   border-radius: 20px;
   object-fit: cover;
-  height: 500px;
-  width: 500px;
+  height: 350px;
+  width: 350px;
+}
+
+.breeds_list {
+  margin-top: 10px;
+  border-top: 3px solid #999999;
+  padding-top: 10px;
+  width: 100vh;
+  position: relative;
+  top: 10px;
+
+}
+
+.breeds_list label, .breeds_list select {
+  margin-right: 20px;
+}
+
+.dog_image_list {
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
 }

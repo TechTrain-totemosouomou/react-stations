@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import BreedsSelect from './BreedsSelect';
+import DogImage from './DogImage';
 
 export const DogListContainer = () => {
   const [breeds, setBreeds] = useState([]);
-  const [selectedBreed, setSelectedBreed] = useState('');
+  const [selectedBreed, setSelectedBreed] = useState('affenpinscher');
+  const [imageUrls, setImageUrls] = useState([]);
 
   useEffect(() => {
     fetch('https://dog.ceo/api/breeds/list/all')
@@ -22,9 +24,28 @@ export const DogListContainer = () => {
     setSelectedBreed(event.target.value); // 選択した犬種をstateに設定
   };
 
+  const setDogBreed = () => {
+    fetch(`https://dog.ceo/api/breed/${selectedBreed}/images/random/12`)
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === 'success') {
+        setImageUrls(data.message);
+      }
+    })
+    .catch(error => console.error('Error fetching the breeds list:', error));
+  };
+
   return (
-    <div>
+    <div className="breeds_list">
       <BreedsSelect breeds={Object.keys(breeds)} selectedBreed={selectedBreed} onSelectChange={selectChange} />
+      <button onClick={setDogBreed}>表示</button>
+      <ul className="dog_image_list">
+        {imageUrls.map((imageUrl, index) => (
+          <li key={index}>
+            <DogImage imageUrl={imageUrl} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
