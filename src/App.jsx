@@ -2,6 +2,7 @@
 
 import './App.css'
 import Header from './Header';
+import DogListContainer from './DogListContainer';
 import Description from './Description';
 
 /**
@@ -11,6 +12,7 @@ export const App = () => {
   return (
     <div>
       <Header />
+      <DogListContainer />
       <Description />
     </div>
   );
